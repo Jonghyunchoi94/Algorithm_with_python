@@ -22,4 +22,20 @@ def solution(numbers):
     answer.sort(key = lambda x:x*3  , reverse=True)  # 문자열을 3번 곱한다?  '3' * 3  => '333'
     return str(int(''.join(answer)))                 # 모든 숫자가 0일 때 '0000000' => '0'으로 출력하여야 한다.
 
+"""
+파이썬 sort 함수  => 시간복잡도 O(NlogN)   [팀소트]
+
+# sort 함수
+sort(*, key=None, reverse=False)
+key는 인자 하나를 받아들이는 함수를 지정하는데, 각 리스트 요소에서 
+비교 키를 추출하는 데 사용된다.
+
+# lambda 함수
+lambda 인자 : 표현식
+익명 함수라고 부르기도 하며 함수 이름 없이 한줄로 간단하게 만드는 방법
+
+"""
+
+
+
 print(solution(numbers))
