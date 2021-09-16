@@ -9,6 +9,13 @@ L * G = a * b
 
 
 참고용 풀이
+
+유클리드 호제법 사용
+
+x, y의 최대공약수는 y, z의 최대공약수와 같다는 원리
+
+z = x % y
+
 """
 def solution(a, b):
     c, d = max(a, b), min(a, b)
