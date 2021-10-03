@@ -1,6 +1,8 @@
 import sys
 sys.stdin = open('input.txt')
 
+# 땅에서 물로  ( 시간 초과 error )
+
 from collections import deque
 
 T = int(input())

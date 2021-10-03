@@ -1,6 +1,8 @@
 import sys
 sys.stdin = open('input.txt')
 
+# 물에서 땅으로 ( 제한 시간 초과 )
+
 from collections import deque
 
 T = int(input())
@@ -10,13 +12,13 @@ dy = [1, -1, 0, 0]
 
 for case in range(T):
     N, M = map(int, input().split())
-    data = [list(input()) for _ in range(N)]
+    data = [input() for _ in range(N)]
     less_visited = [[987654321] * M for _ in range(N)]
-    q = deque()
     for r in range(N):
         for c in range(M):
             if data[r][c] == 'W':
                 visited = [[0] * M for _ in range(N)]
+                q = deque()
                 q.append([r, c])
                 while q:
                     x, y = q.popleft()
