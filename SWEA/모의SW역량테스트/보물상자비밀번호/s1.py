@@ -13,6 +13,7 @@ for case in range(T):
     while m > 0:
         for idx in range(0, len(password), rotate):
             set_data.add(''.join(password[idx: idx + rotate]))
+
         password.append(password.pop(0))
         m -= 1
 
