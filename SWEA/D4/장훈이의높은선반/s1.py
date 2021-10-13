@@ -1,21 +1,18 @@
 import sys
 sys.stdin = open('input.txt')
 
-def tower(height):
+def tower(people, height):
     global ans
     if height >= ans:
         return
 
-    if height >= B:
-        if ans > height:
+    if people == N:
+        if height >= B and ans > height:
             ans = height
         return
-    else:
-        for i in range(N):
-            if visited[i] == 0:
-                visited[i] = 1
-                tower(height + H[i])
-                visited[i] = 0
+
+    tower(people + 1, height)
+    tower(people + 1, height + H[people])
 
 
 T = int(input())
@@ -23,8 +20,8 @@ T = int(input())
 for case in range(T):
     N, B = map(int, input().split())
     H = list(map(int, input().split()))
-    visited = [0] * N
+
     ans = 987654321
-    tower(0)
+    tower(0, 0)
     print('#{} {}'.format(case + 1, ans - B))
 
