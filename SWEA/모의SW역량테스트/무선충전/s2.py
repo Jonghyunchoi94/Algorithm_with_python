@@ -3,7 +3,7 @@
 
 
 import sys
-sys.stdin = open('input2.txt')
+sys.stdin = open('input.txt')
 
 dr = [0, -1, 0, 1, 0] # 가만히, 상, 우, 하, 좌
 dc = [0, 0, 1, 0, -1]
@@ -37,13 +37,30 @@ for case in range(T):
         column, row, C, P = map(int, input().split())
         position_mark(column - 1, row - 1, C, P, k)
 
-    print(power)
-    print(distribution)
     idx = 0
     userA_pos = [0, 0]
     userB_pos = [9, 9]
     while M >= idx:
-        if userA_pos != userB_pos:
+        if (userA_pos[0], userA_pos[1]) in distribution and (userB_pos[0], userB_pos[1]) in distribution:
+            if len(distribution[(userA_pos[0], userA_pos[1])]) == 1 and max(distribution[(userA_pos[0], userA_pos[1])]) in distribution[(userB_pos[0], userB_pos[1])]:
+                data[userA_pos[0]][userA_pos[1]] += max(power[(userA_pos[0], userA_pos[1])])
+                data[userB_pos[0]][userB_pos[1]] += (sum(power[(userB_pos[0], userB_pos[1])]) - max(power[(userA_pos[0], userA_pos[1])]))
+            elif len(distribution[(userB_pos[0], userB_pos[1])]) == 1 and max(distribution[(userB_pos[0], userB_pos[1])]) in distribution[(userA_pos[0], userA_pos[1])]:
+                data[userB_pos[0]][userB_pos[1]] += max(power[(userB_pos[0], userB_pos[1])])
+                data[userA_pos[0]][userA_pos[1]] += (sum(power[(userA_pos[0], userA_pos[1])]) - max(power[(userB_pos[0], userB_pos[1])]))
+            # elif len(distribution[(userA_pos[0], userA_pos[1])]) > 1 and len(distribution[(userB_pos[0], userB_pos[1])]) > 1:
+
+            else:
+                if len(power[(userA_pos[0], userA_pos[1])]) == 1:
+                    data[userA_pos[0]][userA_pos[1]] += max(power[(userA_pos[0], userA_pos[1])])
+                else:
+                    data[userA_pos[0]][userA_pos[1]] += max(power[(userA_pos[0], userA_pos[1])])
+
+                if len(power[(userB_pos[0], userB_pos[1])]) == 1:
+                    data[userB_pos[0]][userB_pos[1]] += max(power[(userB_pos[0], userB_pos[1])])
+                else:
+                    data[userB_pos[0]][userB_pos[1]] += max(power[(userB_pos[0], userB_pos[1])])
+        else:
             if (userA_pos[0], userA_pos[1]) in power and len(power[(userA_pos[0], userA_pos[1])]) == 1:
                 data[userA_pos[0]][userA_pos[1]] += max(power[(userA_pos[0], userA_pos[1])])
             elif (userA_pos[0], userA_pos[1]) in power:
@@ -53,19 +70,13 @@ for case in range(T):
                 data[userB_pos[0]][userB_pos[1]] += max(power[(userB_pos[0], userB_pos[1])])
             elif (userB_pos[0], userB_pos[1]) in power:
                 data[userB_pos[0]][userB_pos[1]] += max(power[(userB_pos[0], userB_pos[1])])
-        else:
-            if (userA_pos[0], userA_pos[1]) in power and len(power[(userA_pos[0], userA_pos[1])]) == 1:
-                data[userA_pos[0]][userA_pos[1]] += max(power[(userA_pos[0], userA_pos[1])])
-            elif (userA_pos[0], userA_pos[1]) in power:
-                data[userA_pos[0]][userA_pos[1]] += max(max(power[(userA_pos[0], userA_pos[1])]), sum(power[(userA_pos[0], userA_pos[1])]))
 
         if idx < 20:
             userA_pos = [userA_pos[0] + dr[user_A[idx]], userA_pos[1] + dc[user_A[idx]]]
             userB_pos = [userB_pos[0] + dr[user_B[idx]], userB_pos[1] + dc[user_B[idx]]]
         idx += 1
 
-    for i in data:
-        print(i)
+
     res = 0
     for i in range(10):
         for j in range(10):
