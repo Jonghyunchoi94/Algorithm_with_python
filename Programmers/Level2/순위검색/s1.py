@@ -33,7 +33,7 @@ def solution(info, query):
 
     for key in info_dict:
         info_dict[key].sort()
-    print(info_dict)
+    # print(info_dict)
     for i in query:
         temp = i.replace("and", "")
         temp = temp.replace("-", "")
