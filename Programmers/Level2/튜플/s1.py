@@ -6,6 +6,7 @@ def solution(s):
     s = s[2:-2]
     s = s.split("},{")
     s.sort(key=len)
+    print(s)
 
     for i in s:
         temp = i.split(",")
