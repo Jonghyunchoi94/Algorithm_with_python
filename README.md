@@ -2,7 +2,7 @@
 
 코딩테스트 대비 알고리즘 문제 풀이
 
-2022.04.08 기준 :  총 104문제 풀이
+2022.12.03 기준 :  총 109문제 풀이
 
 
 
@@ -23,9 +23,9 @@
 
 ### 02. Programmers
 
-총 54문제 풀이
+총 55문제 풀이
 
-- Level 1  :  36문제 풀이      : Youtube Kakao Study 1문제
+- Level 1  :  37문제 풀이      : Youtube Kakao Study 1문제
 - Level 2  :  13문제 풀이      : Youtube Kakao Study 2문제 (Study 비트마스킹)
 - Level 3  :  5문제 풀이 # 카드 짝 맞추기 문제 비트마스킹 및 DP 공부 요망 
 - Level 4
@@ -35,14 +35,14 @@
 
 ### 03. BOJ
 
-총 14문제 풀이
+총 18문제 풀이
 
 - Silver 1 : 2문제 풀이
 - Silver 2 : 1문제 풀이
-- Silver 3 : 3문제 풀이
+- Silver 3 : 6문제 풀이
 - Silver 4 : 1문제 풀이
 - Gold 2 : 1문제 풀이
-- Gold 3 : 3문제 풀이
+- Gold 3 : 4문제 풀이
 - Gold 4 : 2문제 풀이
 - Gold 5 : 1문제 풀이
 
