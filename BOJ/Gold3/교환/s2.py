@@ -34,3 +34,5 @@ if (len(N) == 2 and N[1] == 0) or len(N) == 1:
     print(-1)
 else:
     print(dfs(N, 0))
+
+print(dp)
